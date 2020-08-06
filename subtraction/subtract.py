@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 app = Flask(__name__)
 @app.route('/subtract', methods=['GET', 'POST'])
-# @app.route('/add', methods=['POST'])
 def subtract():
     number1 = request.args.get('number1')
     number2 = request.args.get('number2')
