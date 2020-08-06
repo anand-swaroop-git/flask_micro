@@ -5,26 +5,33 @@ app = Flask(__name__)
 @app.route('/calc', methods=['GET', 'POST'])
 def calc():
     if request.method == 'POST':
+        
+        # Below variables are coming from userinput in showform.html
         number1 = int(request.form['num1'])
         number2 = int(request.form['num2'])
         operand = request.form['operand']
         
+        # Payload to be sent to microservices
+        payload = {"number1": number1, "number2": number2}
+
+        # Microservices endpoints
+        url_addition = 'http://addition:5001/add'
+        url_subtraction = 'http://subtraction:5002/subtract'
+        url_multiplication = 'http://multiplication:5003/multiply'
+        url_division = 'http://division:5004/divide'
+        
         if operand == 'Addition':
-            url = "http://addition:5001/add"
-            payload = {"number1": number1, "number2": number2}
-            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get('http://addition:5001/add', params=payload).text)
+            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get(url_addition, params=payload).text)
+
         if operand == 'Subtraction':
-            url = "http://subtraction:5002/subtract"
-            payload = {"number1": number1, "number2": number2}
-            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get('http://subtraction:5002/subtract', params=payload).text)
+            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get(url_subtraction, params=payload).text)
+
         if operand == 'Multiplication':
-            url = "http://multiplication:5003/multiply"
-            payload = {"number1": number1, "number2": number2}
-            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get('http://multiplication:5003/multiply', params=payload).text)
+            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get(url_multiplication, params=payload).text)
+            
         if operand == 'Division':
-            url = "http://division:5004/divide"
-            payload = {"number1": number1, "number2": number2}
-            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get('http://division:5004/divide', params=payload).text)
+            return render_template('results.html', userinp1=number1, userinp2=number2, operation=operand, result=requests.get(url_division, params=payload).text)
+    
     return render_template('showform.html')
 
 if __name__ == '__main__':

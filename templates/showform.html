@@ -1,20 +1,48 @@
-<!DOCTYPE html>
-<head></head>
-<body>
-    <h1>CALCULATOR</h1>
-    <form method="POST" action="/calc">
-        <h2>Enter the first number below:</h2>
-        <input type="text" name="num1">
-        <h2>Enter the second number below:</h2>
-        <input type="text" name="num2">
-        <h2>What would you like to do with these numbers?</h2>
-        <select name="operand">        
-            <option value="Addition">Add</option>
-            <option value="Subtraction">Subtract</option>
-            <option value="Multiplication">Multiply</option>
-            <option value="Division">Divide</option>
-        </select>
-        <input type="Submit">
-    </form>
-</body>
-</html>
+<!doctype html>
+<title>Calculator</title>
+<style>
+    h1 {
+        font-size: 50px;
+        color: #333
+    }
+
+    h2 {
+        font-size: 25px;
+        color: steelblue
+    }
+
+    body {
+        font: 10px Helvetica, sans-serif;
+        color: #333;
+    }
+
+    article {
+        padding: 100px;
+        display: block;
+        text-align: left;
+        width: 650px;
+        margin: 0 auto;
+        color: cornflowerblue;
+    }
+</style>
+<article>
+    <h1>FLASK CALCULATOR</h1>
+    <div>
+        <p>
+        <form method="POST" action="/calc">
+            <h2>Enter the first number below:</h2>
+            <input type="text" name="num1">
+            <h2>Enter the second number below:</h2>
+            <input type="text" name="num2">
+            <h2>Select the operation:</h2>
+            <select name="operand">
+                <option value="Addition">Add</option>
+                <option value="Subtraction">Subtract</option>
+                <option value="Multiplication">Multiply</option>
+                <option value="Division">Divide</option>
+            </select>
+            <input type="Submit">
+        </form>
+        </p>
+    </div>
+</article>
