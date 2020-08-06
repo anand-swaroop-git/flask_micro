@@ -1,24 +1,14 @@
 version: '3'
 services:
     calculator: # Main app
-        build:
-            dockerfile: Dockerfile
-            context: .
+        image: aswwsa/flask_micro_calculator
         ports:
             - '5000:5000'
     addition:
-        build:
-            dockerfile: Dockerfile
-            context: ./addition
+        image: aswwsa/flask_micro_addition
     subtraction:
-        build:
-            dockerfile: Dockerfile
-            context: ./subtraction
+        image: aswwsa/flask_micro_subtraction
     multiplication:
-        build:
-            dockerfile: Dockerfile
-            context: ./multiplication
+        image: aswwsa/flask_micro_multiplication
     division:
-        build:
-            dockerfile: Dockerfile
-            context: ./division
+        image: aswwsa/flask_micro_division
