@@ -4,6 +4,6 @@ RUN apk add py3-pip
 WORKDIR /app
 COPY . /app
 RUN pip install -r requirements.txt
-EXPOSE 5001
+EXPOSE 5002
 ENTRYPOINT [ "python3" ] 
 CMD [ "subtract.py" ]
