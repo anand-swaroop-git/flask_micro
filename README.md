@@ -1,6 +1,6 @@
 # Flask Calculator (Multi Container)
 
-> **Prerequisite:** **Docker** should be installed.
+> **Prerequisite:** Docker should be installed.
 
 - To run, just clone the repo, browse inside flask_micro and run `docker-compose up`. 
 - Browse to **http://localhost:5000** in the browser. 
